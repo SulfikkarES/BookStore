@@ -1,0 +1,111 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BookStore.master.cs" Inherits="EazyLern.BookStore.Layout.BookStore" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TeamRally</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> 
+    <link href="../Styles/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".toggle").click(function(){
+        $(".sidebar").toggleClass("main");
+		$(".toggle_ico_hide").toggleClass("main");
+		$(".sidebar ul li a").toggleClass("main");
+		$(".tr_right_content").toggleClass("main");
+		
+    }); 
+});
+</script>
+     <%-- <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>--%>
+</head>
+<body>
+     <form runat="server">
+  <header>
+       </div>
+  	<a href="../images/logo.jpg" class="logo"></a>
+      <span class="logout_ico"></span><!--logout-->
+    <span  class="home_ico"></span><!--logout-->
+    <span class="user_ico">
+    	<p> <h4 id="lblUser" runat="server"><i class="fas fa-user"></i>&nbsp;</h4></p> <br />  
+        <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"><h4><i class="fas fa-sign-out-alt"></i> &nbsp;Logout</h4></asp:LinkButton>
+        <p> </p> 
+    </span><!--logout-->
+           &nbsp;&nbsp; <asp:LinkButton ID="lnkHome" runat="server" OnClick="lnkHome_Click"><i class="fas fa-home"></i>Home</asp:LinkButton>
+       &nbsp;&nbsp; <asp:LinkButton ID="LinkButton1" runat="server" OnClick="lnkHome_Click"><i class="fas fa-ellipsis-v"></i>Menu</asp:LinkButton>
+            &nbsp;&nbsp;  <asp:LinkButton ID="lnkBooks" runat="server" OnClick="lnkHome_Click"><i class="fas fa-book-open"></i>Books</asp:LinkButton>
+              &nbsp;&nbsp;    <asp:LinkButton ID="lnkName" runat="server" OnClick="lnkHome_Click"><i class="fas fa-address-card"></i>About Us</asp:LinkButton>
+     &nbsp;&nbsp; <asp:LinkButton ID="lnkLogout" runat="server" OnClick="lnkHome_Click"><i class="fas fa-id-card"></i>Contact Us</asp:LinkButton>
+           <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+  
+
+      
+  </header>
+      <div class="sidebar">
+  	
+    	<ul>
+            
+             <li class="user_list_ico"><a href="#"><span class="toggle_ico_hide">Menu</span></a></li>
+             <li class="events_list_ico"><a href="Home.aspx"><span class="toggle_ico_hide">Home</span></a></li>
+          <li class="building_list_ico"><a href="#"><span class="toggle_ico_hide">Shopping Cart</span></a></li>
+           <li class="building_list_ico"><a href="#"><span class="toggle_ico_hide">About Us</span></a></li>
+            <li class="weekly_performance_ico"><a href="#"><span class="toggle_ico_hide">Specials</span></a>
+          
+          			
+
+          
+
+            <asp:GridView ID="gvCategoryList" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" OnSelectedIndexChanged="gvCategoryList_SelectedIndexChanged" CellPadding="10" PageSize="6" GridLines="None" AllowPaging="True" OnPageIndexChanging="gvCategoryList_PageIndexChanging" >
+                <Columns>
+                    <asp:HyperLinkField DataNavigateUrlFields="cat_category_id" DataNavigateUrlFormatString="~/BookListByCategory.aspx?categoryId={0}" DataTextField="cat_category_name" HeaderText="Category" />
+                </Columns>
+                </asp:GridView>
+
+
+
+
+          <li class="report_list_ico"><a href="#"><span class="toggle_ico_hide">Performance Review Report</span></a></li>
+             <li class="organization_list_ico"><a href="#"><span class="toggle_ico_hide">Performance Chart</span></a></li>
+        
+     </li>
+        </ul>
+    
+  
+  </div><!--sidebar-->     
+
+         <div class="tr_right_content">
+  	
+    			<div class="tr_users_form_wrapper">
+            
+                         
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                     
+                        </asp:ContentPlaceHolder>
+                          </form>  
+                            <div class="tr_single_side_form">
+                            
+                            
+                            
+                            
+
+                            
+                            </div><!--tr_single_side_form-->
+                
+                </div><!--tr_users_form_wrapper-->
+    	
+  
+  </div><!--tr_roght_content-->
+    
+        <div>
+            
+        </div>
+    
+</body>
+</html>
