@@ -1,5 +1,5 @@
 /*----------------INSERT CART TABLE---------*/
-GO 123
+GO 
 CREATE PROCEDURE procCartInsert
 @orderid INT, @bookid INT, @quantity INT, @unitprice DECIMAL(8,2)
 AS
